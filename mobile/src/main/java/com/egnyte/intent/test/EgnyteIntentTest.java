@@ -36,6 +36,15 @@ public class EgnyteIntentTest extends ActivityInstrumentationTestCase2<LoginActi
         assertEquals(isEgnyteSchemaAvailable, true);
     }
 
+    public void testCanEgnyteReplyToOpenIntentsPickFile() throws Exception {
+        Intent intent = new Intent( "org.openintents.action.PICK_FILE");
+        intent.setDataAndType(Uri.parse("file:///android_asset/sample.pdf"), "application/pdf");
+
+        PackageManager packageManager = getActivity().getPackageManager();
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        assertEquals(2, list.size());
+    }
+
     public boolean isIntentAvailable(Context context, String action, String uri) {
         Intent intent = new Intent(action, Uri.parse(uri));
 
