@@ -6,7 +6,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "api.intent.android.egnyte.com.egnyteintents"
+        applicationId "com.egnyte.intent"
         minSdkVersion 21
         targetSdkVersion 22
         versionCode 1
